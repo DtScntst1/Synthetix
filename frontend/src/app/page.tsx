@@ -227,7 +227,7 @@ function SynthetixFlow() {
           nodeTypes={nodeTypes}
           className="bg-transparent"
         >
-          <Background color="#ffffff" gap={16} size={1} opacity={0.03} />
+          <Background color="#ffffff" gap={16} size={1} style={{ opacity: 0.03 }} />
           <Controls className="!bg-white/5 !border-white/10 !fill-white" />
         </ReactFlow>
       </div>
