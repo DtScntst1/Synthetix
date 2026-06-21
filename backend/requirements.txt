@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+neo4j
+langgraph
+langchain
+langchain-core
+langchain-groq
+langchain-community
+python-multipart
+python-dotenv
+pandas
+pydantic
+pydantic-settings
+asyncio
+pypdf
+python-multipart

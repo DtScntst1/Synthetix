@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.20
+    container_name: insightgraph-neo4j
+    ports:
+      - "7474:7474" # HTTP
+      - "7687:7687" # Bolt
+    environment:
+      NEO4J_AUTH: neo4j/insightgraph123
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    volumes:
+      - neo4j_data:/data
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: insightgraph-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpassword
+      POSTGRES_DB: insightgraph
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:
+  postgres_data:
